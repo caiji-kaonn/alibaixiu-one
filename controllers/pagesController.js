@@ -22,8 +22,14 @@ exports.getAdmincomments=(req,res)=>{
 exports.getAdminindex=(req,res)=>{
     res.render('admin/index')
 }
+// 对登录页面做出状态保持的判断---有登录过，就跳转，没有登录过，就登录
 exports.getAdminlogin=(req,res)=>{
-    res.render('admin/login')
+    // 这是登录过得 重定向
+    if(req.session.isLogin && req.session.isLogin=='true'){
+        res.render('admin/index')
+    }else{
+        res.render('admin/login')
+    }
 }
 exports.getAdminnavmenus=(req,res)=>{
     res.render('admin/nav-menus')

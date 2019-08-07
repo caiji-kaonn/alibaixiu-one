@@ -4,6 +4,7 @@ const express=require('express');
 const router=express.Router();
 const pagesController=require('./controllers/pagesController');
 const userController=require('./controllers/userController');
+const postController=require('./controllers/postController');
 
 // 前台页面
 router.get('/index',pagesController.getIndex)
@@ -28,7 +29,8 @@ router.get('/index',pagesController.getIndex)
 // 后台---登录--设置
 router.post('/admin/loginSet',userController.login)
 
-
+// 后台--发送文章渲染动态
+router.get('/getAllposts',postController.getAllposts)
 
 
 module.exports=router;
